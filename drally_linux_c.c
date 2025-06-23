@@ -196,9 +196,9 @@ void dRally_Display_init(int mode){
 	if(!GX.VESA101.Surface) GX.VESA101.Surface = SDL_CreateRGBSurfaceWithFormatFrom(VESA101_ACTIVESCREEN, 640, 480, 8, 640, SDL_PIXELFORMAT_INDEX8);
 
 	int flags = SDL_WINDOW_HIDDEN;
-#ifdef PSVITA 
+#if defined(PSVITA) || defined(SWITCH)
 	flags = flags || SDL_WINDOW_MAXIMIZED;
-#endif
+#endif // defined(PSVITA) || defined(SWITCH)
 	if(!GX.Window){
 
 		GX.Window = SDL_CreateWindow(
